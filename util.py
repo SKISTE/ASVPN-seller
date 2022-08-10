@@ -1,4 +1,3 @@
-import imp
 import string,random
 from transliterate import translit
 
@@ -23,4 +22,5 @@ def generate_random_password(length: int):
 def renamer(name):
 	name = name.replace(' ','_')
 	name = name.replace('/','x').replace('\'','x').replace('"','x').replace('!','x').replace('@','x').replace('#','x').replace('№','x').replace(';','x').replace('$','x').replace('%','x').replace('^','x').replace('&','x').replace('?','x').replace('.','x').replace(',','x').replace('*','x').replace('(','x').replace(')','x').replace('-','x').replace('=','x').replace('+','x').replace('>','x').replace('<','x').replace('[','x').replace(']','x').replace('{','x').replace('}','x').replace(':','x')
-	return translit(name, reversed=True)
+	name = name+'ф'
+	return translit(name, reversed=True)[:-1]

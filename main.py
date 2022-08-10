@@ -19,6 +19,7 @@ TOKEN = config["telegram"]["token"]
 OWNER_ID = config["telegram"]["owner"]
 wallet_number = config["qiwi"]["wallet_number"]
 QIWI_SEC_TOKEN = config["qiwi"]["QIWI_SEC_TOKEN"]
+PRICE = config["price"]["price"]
 print(f'===\nConfig is:\nOwner ID: {OWNER_ID}\nBot Token: {TOKEN}\nwallet_number: {wallet_number}\nQIWI_SEC_TOKEN: {QIWI_SEC_TOKEN}\n===')
 
 wallet_p2p = Wallet(wallet_number, p2p_sec_key=QIWI_SEC_TOKEN)
@@ -124,7 +125,7 @@ def connectss(message):
 def connectss(message):
     log = load_log(message.from_user.id)
     if log['buyprocces']:
-        invoice = wallet_p2p.create_invoice(value=100)
+        invoice = wallet_p2p.create_invoice(value=int(PRICE))
         print(invoice["payUrl"])
         bot.send_message(message.chat.id, f'Отличное имя!\nТеперь осталось лишь заплатить:\n{invoice["payUrl"]}',reply_markup=keyboardcheck)
         save_log({'lastname':message.text,'buyprocces':False,'billid':invoice['billId']},message.from_user.id)
