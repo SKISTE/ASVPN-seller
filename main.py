@@ -140,5 +140,8 @@ def connectss(message):
         return
 
 
-
-bot.polling(none_stop=True, interval=0)
+while True:
+    try:
+        bot.polling(none_stop=True, interval=0)
+    except Exception as e:
+        print(str(e))
