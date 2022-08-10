@@ -48,6 +48,7 @@ def check_billing(message, name: str):
             status = wallet_p2p.invoice_status(bill_id=log['billid'])
             if status['status']['value'] == 'PAID':
                 create_account_vpn(name, message.from_user.id)
+                save_log({'billid':'','lastname':''},message.from_user.id)
                 bot.send_message(message.chat.id,'Мы увидили ваш платеж, данные от VPN вы можете просмотреть через /myvpns', reply_markup=removekeyboard)
                 return
             else:
