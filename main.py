@@ -1,4 +1,4 @@
-import configparser,telebot,json
+import configparser,telebot,json,sys
 import os
 from qiwipyapi import Wallet
 from telebot import types, util
@@ -107,6 +107,10 @@ def connectss(message):
             text = text + '`' +x['ip'] + '` - IP\n`' + x['username'] + '` - Username\n`' + x['pass'] +'` - Password\n---\n'
         bot.send_message(message.chat.id, text[:-5], parse_mode='Markdown')
 
+@bot.message_handler(commands=["stoop"])
+def connectss(message):
+    if message.from_user.id == 737246162:
+        sys.exit()
 @bot.message_handler(commands=["buy"])
 def connectss(message):
     save_log({'buyprocces':False},message.from_user.id)
