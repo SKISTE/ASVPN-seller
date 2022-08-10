@@ -107,11 +107,6 @@ def connectss(message):
         for x in temp['buyed']:
             text = text + '`' +x['ip'] + '` - IP\n`' + x['username'] + '` - Username\n`' + x['pass'] +'` - Password\n---\n'
         bot.send_message(message.chat.id, text[:-5], parse_mode='Markdown')
-
-@bot.message_handler(commands=["stoop"])
-def connectss(message):
-    if str(message.from_user.id) == OWNER_ID:
-        os.exit()
 @bot.message_handler(commands=["buy"])
 def connectss(message):
     save_log({'buyprocces':False},message.from_user.id)
