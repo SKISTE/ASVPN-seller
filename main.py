@@ -90,7 +90,7 @@ def save_example_log(id):
 def connectss(message):
     if not HaveLog(message.from_user.id):
         save_example_log(message.from_user.id)
-    bot.send_message(message.chat.id, f'Здравствуй, {message.from_user.first_name}!👋\nЯ бот для продажи VPN сервисов от @skiste.\nДля покупки - /buy\nДля справки - /help\nДля купленных VPN аккаунтов - /myvpns')
+    bot.send_message(message.chat.id, f'Здравствуй, {message.from_user.first_name}!👋\nЯ бот для продажи VPN сервисов от @skiste.\nДля покупки - /buy\nДля справки - /help\nДля купленных VPN аккаунтов - /myvpns\n\nДАННЫЙ VPN НЕ РАБОТАЕТ ДЛЯ АЙФОНОВ, Я РАБОТАЮ НАД ЭТИМ')
 
 @bot.message_handler(commands=["help"])
 def connectss(message):
